@@ -1,5 +1,5 @@
-:root {
-      --cor-fundo: #f8fafc;
+ :root {
+      --cor-fundo: #0f172a;
       --cor-cartao: #ffffff;
       --texto-principal: #0f172a;
       --texto-suave: #334155;
@@ -11,7 +11,7 @@
       --cor-borda: #cbd5e1;
       --tamanho-fonte-base: 20px;
       --raio-borda: 18px;
-      --sombra-cartao: 0 4px 16px rgba(0, 0, 0, 0.08);
+      --sombra-cartao: 0 4px 16px rgba(0, 0, 0, 0.15);
     }
 
     /* Modo Alto Contraste */
@@ -72,6 +72,7 @@
       padding: 16px;
     }
 
+    /* Barra de Acessibilidade */
     .barra-acessibilidade {
       background-color: var(--cor-cartao);
       border: 3px solid var(--cor-borda);
@@ -92,6 +93,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      color: var(--texto-principal);
     }
 
     .grupo-controles {
@@ -125,6 +127,7 @@
       filter: brightness(1.1);
     }
 
+    /* Menu de Navegação */
     .menu-navegacao {
       display: flex;
       gap: 10px;
@@ -153,11 +156,12 @@
       color: #ffffff;
     }
 
-    body:has(#alternar-contraste:checked) .link-navegacao:hover,
-    body:has(#alternar-contraste:checked) .link-navegacao:focus {
-      color: #000000;
+    .link-destaque-ajuda {
+      color: var(--cor-perigo);
+      border-color: var(--cor-perigo);
     }
 
+    /* Banner de Destaque */
     .banner-destaque {
       background-color: var(--cor-cartao);
       border: 3px solid var(--cor-borda);
@@ -195,7 +199,7 @@
       padding: 18px 32px;
       border-radius: 50px;
       border: 3px solid var(--cor-perigo-escura);
-      box-shadow: 0 6px 18px rgba(220, 38, 38, 0.35);
+      box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
       transition: transform 0.15s ease, background-color 0.2s ease;
       cursor: pointer;
     }
@@ -205,12 +209,167 @@
       background-color: #b91c1c;
     }
 
-    body:has(#alternar-contraste:checked) .botao-ajuda-principal {
-      background-color: #ff3333;
-      color: #000000;
-      border-color: #ffffff;
+    /* ==========================================================================
+       POP-UP MODAL (ACIONADO COM CSS :target)
+       ========================================================================== */
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(15, 23, 42, 0.82);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
 
+    .modal-overlay:target {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-fundo-fechar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: default;
+    }
+
+    .modal-conteudo {
+      position: relative;
+      background-color: #f0f4f8;
+      border: 3px solid #cbd5e1;
+      border-radius: 20px;
+      max-width: 580px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      color: #0f172a;
+    }
+
+    body:has(#alternar-contraste:checked) .modal-conteudo {
+      background-color: #121212;
+      border-color: #facc15;
+      color: #ffffff;
+    }
+
+    .botao-fechar-topo {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #64748b;
+      text-decoration: none;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #e2e8f0;
+    }
+
+    body:has(#alternar-contraste:checked) .botao-fechar-topo {
+      background-color: #334155;
+      color: #ffffff;
+    }
+
+    .modal-conteudo h2 {
+      font-size: 1.8em;
+      color: #1e3a8a;
+      margin-bottom: 8px;
+    }
+
+    body:has(#alternar-contraste:checked) .modal-conteudo h2 {
+      color: #facc15;
+    }
+
+    .linha-divisoria-modal {
+      height: 4px;
+      background-color: #eab308;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+
+    .modal-subtitulo {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      color: #334155;
+    }
+
+    body:has(#alternar-contraste:checked) .modal-subtitulo {
+      color: #f1f5f9;
+    }
+
+    .lista-passos-emergencia {
+      padding-left: 24px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .lista-passos-emergencia li {
+      font-size: 1.15em;
+      line-height: 1.5;
+      color: #1e293b;
+    }
+
+    body:has(#alternar-contraste:checked) .lista-passos-emergencia li {
+      color: #ffffff;
+    }
+
+    .titulo-ligar-rapido {
+      font-size: 1.1em;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+
+    body:has(#alternar-contraste:checked) .titulo-ligar-rapido {
+      color: #ffffff;
+    }
+
+    .grade-emergencia-modal {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .rodape-modal {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .botao-fechar-modal {
+      display: inline-block;
+      background-color: #475569;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    .botao-fechar-modal:hover {
+      background-color: #334155;
+    }
+
+    /* Cartões de Seção */
     .cartao-secao {
       background-color: var(--cor-cartao);
       border: 3px solid var(--cor-borda);
@@ -234,6 +393,7 @@
       color: var(--cor-primaria);
     }
 
+    /* Grade de Dicas */
     .grade-dicas {
       display: grid;
       grid-template-columns: 1fr;
@@ -278,6 +438,7 @@
       font-size: 1.05em;
     }
 
+    /* Direitos */
     .conteudo-direitos {
       line-height: 1.7;
     }
@@ -317,6 +478,7 @@
       margin-bottom: 4px;
     }
 
+    /* Golpes */
     .caixa-alerta {
       background-color: #fef2f2;
       border: 2px solid #fca5a5;
@@ -350,92 +512,4 @@
       border: 2px solid var(--cor-borda);
       border-radius: 12px;
       padding: 16px;
-      background-color: var(--cor-fundo);
-    }
-
-    .titulo-sinal {
-      font-weight: bold;
-      font-size: 1.15em;
-      color: var(--cor-perigo);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .secao-ajuda {
-      background-color: var(--cor-cartao);
-      border: 4px solid var(--cor-perigo);
-      border-radius: var(--raio-borda);
-      padding: 28px;
-      margin-top: 40px;
-      box-shadow: var(--sombra-cartao);
-    }
-
-    .secao-ajuda h2 {
-      color: var(--cor-perigo);
-      font-size: 1.8em;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .secao-ajuda p.subtitulo {
-      text-align: center;
-      margin-bottom: 24px;
-      font-size: 1.1em;
-    }
-
-    .grade-emergencia {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
-
-    .botao-emergencia {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px 14px;
-      border-radius: 16px;
-      text-decoration: none;
-      font-weight: 800;
-      color: #ffffff;
-      background-color: #dc2626;
-      border: 3px solid #7f1d1d;
-      text-align: center;
-      transition: transform 0.2s ease;
-    }
-
-    .botao-emergencia:hover, .botao-emergencia:focus {
-      transform: scale(1.03);
-    }
-
-    .botao-emergencia.policia {
-      background-color: #1e40af;
-      border-color: #1e3a8a;
-    }
-
-    .botao-emergencia.procon {
-      background-color: #d97706;
-      border-color: #92400e;
-    }
-
-    .botao-emergencia.banco {
-      background-color: #047857;
-      border-color: #064e3b;
-    }
-
-    .botao-emergencia span.numero {
-      font-size: 1.6em;
-      margin-top: 4px;
-    }
-
-    .rodape {
-      text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      color: var(--texto-suave);
-      font-size: 0.95em;
-    }
- 
+      background
