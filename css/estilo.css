@@ -1,4 +1,4 @@
- :root {
+:root {
       --cor-fundo: #f8fafc;
       --cor-cartao: #ffffff;
       --texto-principal: #0f172a;
@@ -14,6 +14,7 @@
       --sombra-cartao: 0 4px 16px rgba(0, 0, 0, 0.08);
     }
 
+    /* Modo Alto Contraste */
     body:has(#alternar-contraste:checked) {
       --cor-fundo: #000000;
       --cor-cartao: #121212;
@@ -27,10 +28,12 @@
       --cor-borda: #facc15;
     }
 
+    /* Aumentar Tamanho da Fonte */
     body:has(#alternar-fonte:checked) {
       --tamanho-fonte-base: 25px;
     }
 
+    /* Estilos Gerais */
     * {
       box-sizing: border-box;
       margin: 0;
