@@ -1,681 +1,702 @@
-/* ==========================================================================
-       1. VARIÁVEIS E TEMAS DE ACESSIBILIDADE
-       ========================================================================== */
-    :root {
-      /* Modo Normal: Fundo escuro com texto BRANCO visível */
-      --cor-fundo: #0f172a;
-      --cor-cartao: #1e293b;
-      --texto-principal: #ffffff;
-      --texto-suave: #cbd5e1;
-      --cor-primaria: #38bdf8;
-      --cor-primaria-escura: #0284c7;
-      --cor-perigo: #ef4444;
-      --cor-perigo-escura: #b91c1c;
-      --cor-alerta: #f59e0b;
-      --cor-borda: #334155;
-      --foco-cor: #facc15;
-      --tamanho-fonte-base: 20px;
-      --espacamento-linha: 1.6;
-      --espacamento-letra: normal;
-      --raio-borda: 18px;
-      --sombra-cartao: 0 4px 16px rgba(0, 0, 0, 0.4);
-      --duracao-transicao: 0.25s;
+/* ==================================================
+   CONFIGURAÇÕES GERAIS
+   ================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #222222;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   CABEÇALHO
+   ================================================== */
+
+.cabecalho {
+    background-color: #082238;
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 20px;
+    border-bottom: 5px solid #e2b900;
+}
+
+.cabecalho h1 {
+    margin: 0;
+    font-size: 38px;
+}
+
+.cabecalho p {
+    margin: 10px auto 0;
+    font-size: 20px;
+}
+
+
+/* ==================================================
+   ACESSIBILIDADE
+   ================================================== */
+
+.acessibilidade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    background-color: #ffffff;
+    padding: 18px;
+
+    border-bottom: 2px solid #cccccc;
+}
+
+
+/* Esconde os checkboxes */
+
+.acessibilidade input {
+    position: absolute;
+    opacity: 0;
+}
+
+
+/* Botões de acessibilidade */
+
+.acessibilidade label {
+    display: inline-block;
+
+    background-color: #164a7b;
+    color: #ffffff;
+
+    padding: 13px 20px;
+
+    border-radius: 7px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    border: 2px solid #164a7b;
+}
+
+
+/* Quando o botão está ativado */
+
+.acessibilidade input:checked + label {
+    background-color: #e2b900;
+    color: #000000;
+
+    border-color: #000000;
+}
+
+
+/* Foco do teclado */
+
+.acessibilidade input:focus + label {
+    outline: 4px solid #ff8c00;
+    outline-offset: 3px;
+}
+
+
+/* ==================================================
+   CONTEÚDO
+   ================================================== */
+
+.site-conteudo {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+main {
+    width: 100%;
+}
+
+
+/* ==================================================
+   INÍCIO / BANNER
+   ================================================== */
+
+.inicio {
+    padding: 35px 20px;
+}
+
+.banner {
+    max-width: 1100px;
+    margin: auto;
+
+    background-color: #ffffff;
+
+    border-left: 8px solid #164a7b;
+
+    border-radius: 10px;
+
+    padding: 40px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+
+    text-align: center;
+}
+
+.banner h2 {
+    margin-top: 0;
+
+    color: #164a7b;
+
+    font-size: 34px;
+}
+
+.banner p {
+    max-width: 750px;
+    margin: 15px auto 25px;
+
+    font-size: 21px;
+}
+
+
+/* ==================================================
+   BOTÃO DE AJUDA
+   ================================================== */
+
+.botao-ajuda {
+    display: inline-block;
+
+    background-color: #e2b900;
+    color: #000000;
+
+    padding: 16px 30px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 21px;
+    font-weight: bold;
+
+    border: 3px solid #000000;
+}
+
+.botao-ajuda:hover {
+    background-color: #c49f00;
+}
+
+.botao-ajuda:focus {
+    outline: 4px solid #164a7b;
+    outline-offset: 4px;
+}
+
+
+/* ==================================================
+   SEÇÕES
+   ================================================== */
+
+.secao {
+    max-width: 1100px;
+
+    margin: 0 auto 35px;
+
+    padding: 35px 30px;
+
+    background-color: #ffffff;
+
+    border-radius: 10px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.10);
+}
+
+.secao h2 {
+    color: #164a7b;
+
+    font-size: 32px;
+
+    margin-top: 0;
+
+    border-bottom: 3px solid #e2b900;
+
+    padding-bottom: 10px;
+}
+
+.introducao {
+    font-size: 20px;
+}
+
+
+/* ==================================================
+   CARDS DAS DICAS
+   ================================================== */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-top: 25px;
+}
+
+.card {
+    border: 2px solid #d0d0d0;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    background-color: #f8fafc;
+}
+
+.card h3 {
+    color: #164a7b;
+
+    font-size: 24px;
+}
+
+.card p {
+    font-size: 18px;
+}
+
+.numero {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #164a7b;
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/* ==================================================
+   DIREITOS NA INTERNET
+   ================================================== */
+
+.direitos {
+    border-left: 8px solid #164a7b;
+}
+
+.texto p {
+    font-size: 19px;
+
+    margin-bottom: 18px;
+}
+
+
+/* ==================================================
+   GOLPES
+   ================================================== */
+
+.alerta {
+    background-color: #fff8d6;
+
+    border-left: 8px solid #e2b900;
+
+    padding: 25px;
+
+    margin-top: 25px;
+
+    border-radius: 7px;
+}
+
+.alerta h3 {
+    color: #664f00;
+
+    font-size: 26px;
+
+    margin-top: 0;
+}
+
+.alerta li {
+    margin-bottom: 14px;
+
+    font-size: 19px;
+}
+
+
+/* ==================================================
+   FRASE DE DESTAQUE
+   ================================================== */
+
+.frase-destaque {
+    margin-top: 25px;
+
+    background-color: #eaf3ff;
+
+    border: 2px solid #164a7b;
+
+    border-radius: 8px;
+
+    padding: 22px;
+
+    text-align: center;
+}
+
+.frase-destaque strong {
+    color: #164a7b;
+
+    font-size: 24px;
+}
+
+.frase-destaque p {
+    margin-bottom: 0;
+}
+
+
+/* ==================================================
+   RODAPÉ
+   ================================================== */
+
+.rodape {
+    background-color: #082238;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    margin-top: 40px;
+}
+
+.rodape p {
+    margin: 5px;
+}
+
+
+/* ==================================================
+   MODAL DE AJUDA
+   ================================================== */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.75);
+
+    z-index: 1000;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+
+/* Faz a janela aparecer */
+
+.modal:target {
+    display: flex;
+}
+
+
+/* Caixa da janela */
+
+.modal-conteudo {
+    position: relative;
+
+    background-color: #ffffff;
+
+    color: #222222;
+
+    width: 90%;
+    max-width: 600px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 35px;
+
+    border-radius: 10px;
+
+    border: 3px solid #164a7b;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+
+    font-size: 18px;
+}
+
+.modal-conteudo h2 {
+    color: #164a7b;
+
+    font-size: 30px;
+
+    margin-top: 0;
+
+    border-bottom: 3px solid #e2b900;
+
+    padding-bottom: 10px;
+}
+
+.modal-conteudo li {
+    margin-bottom: 14px;
+}
+
+
+/* Botão fechar */
+
+.fechar {
+    position: absolute;
+
+    top: 8px;
+    right: 15px;
+
+    color: #000000;
+
+    text-decoration: none;
+
+    font-size: 38px;
+
+    font-weight: bold;
+
+    line-height: 1;
+}
+
+.fechar:hover {
+    color: #b00020;
+}
+
+.fechar:focus {
+    outline: 4px solid #e2b900;
+}
+
+
+/* Aviso dentro da janela */
+
+.aviso-modal {
+    background-color: #eaf3ff;
+
+    border-left: 6px solid #164a7b;
+
+    padding: 18px;
+
+    margin-top: 20px;
+}
+
+.aviso-modal strong {
+    color: #164a7b;
+
+    font-size: 20px;
+}
+
+
+/* ==================================================
+   MODO LEITURA
+   ================================================== */
+
+#modo-leitura:checked ~ .site-conteudo {
+    background-color: #ffffff;
+}
+
+#modo-leitura:checked ~ .site-conteudo .banner,
+#modo-leitura:checked ~ .site-conteudo .secao {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#modo-leitura:checked ~ .site-conteudo p,
+#modo-leitura:checked ~ .site-conteudo li {
+    font-size: 21px;
+    line-height: 1.9;
+}
+
+#modo-leitura:checked ~ .site-conteudo h2 {
+    font-size: 34px;
+}
+
+
+/* ==================================================
+   ALTO CONTRASTE
+   ================================================== */
+
+#alto-contraste:checked ~ .site-conteudo {
+    background-color: #000000;
+
+    color: #ffffff;
+}
+
+
+/* Seções */
+
+#alto-contraste:checked ~ .site-conteudo .secao,
+#alto-contraste:checked ~ .site-conteudo .banner,
+#alto-contraste:checked ~ .site-conteudo .card {
+    background-color: #000000;
+
+    color: #ffffff;
+
+    border-color: #ffffff;
+}
+
+
+/* Títulos */
+
+#alto-contraste:checked ~ .site-conteudo h2,
+#alto-contraste:checked ~ .site-conteudo h3 {
+    color: #ffffff;
+}
+
+
+/* Texto */
+
+#alto-contraste:checked ~ .site-conteudo p,
+#alto-contraste:checked ~ .site-conteudo li {
+    color: #ffffff;
+}
+
+
+/* Links */
+
+#alto-contraste:checked ~ .site-conteudo a {
+    color: #ffff00;
+}
+
+
+/* Cards */
+
+#alto-contraste:checked ~ .site-conteudo .card {
+    background-color: #000000;
+}
+
+
+/* Alerta */
+
+#alto-contraste:checked ~ .site-conteudo .alerta {
+    background-color: #000000;
+
+    color: #ffffff;
+
+    border-color: #ffff00;
+}
+
+#alto-contraste:checked ~ .site-conteudo .alerta h3 {
+    color: #ffff00;
+}
+
+
+/* Frase */
+
+#alto-contraste:checked ~ .site-conteudo .frase-destaque {
+    background-color: #000000;
+
+    border-color: #ffffff;
+}
+
+#alto-contraste:checked ~ .site-conteudo .frase-destaque strong {
+    color: #ffff00;
+}
+
+
+/* ==================================================
+   ZOOM
+   ================================================== */
+
+#zoom:checked ~ .site-conteudo {
+    font-size: 125%;
+}
+
+#zoom:checked ~ .site-conteudo .banner h2 {
+    font-size: 42px;
+}
+
+#zoom:checked ~ .site-conteudo .secao h2 {
+    font-size: 38px;
+}
+
+#zoom:checked ~ .site-conteudo .card h3 {
+    font-size: 29px;
+}
+
+
+/* ==================================================
+   RESPONSIVIDADE
+   ================================================== */
+
+@media (max-width: 800px) {
+
+    .cards {
+        grid-template-columns: 1fr;
     }
 
-    /* MODO ALTO CONTRASTE (Amarelo e Branco no Preto) */
-    body:has(#alternar-contraste:checked) {
-      --cor-fundo: #000000;
-      --cor-cartao: #121212;
-      --texto-principal: #ffffff;
-      --texto-suave: #fef08a;
-      --cor-primaria: #facc15;
-      --cor-primaria-escura: #eab308;
-      --cor-perigo: #ff4d4d;
-      --cor-perigo-escura: #ff8080;
-      --cor-alerta: #fde047;
-      --cor-borda: #facc15;
-      --foco-cor: #facc15;
+    .cabecalho h1 {
+        font-size: 32px;
     }
 
-    /* MODO CLARO (Fundo Claro com Texto Escuro) */
-    body:has(#alternar-claro:checked):not(:has(#alternar-contraste:checked)) {
-      --cor-fundo: #f8fafc;
-      --cor-cartao: #ffffff;
-      --texto-principal: #0f172a;
-      --texto-suave: #334155;
-      --cor-primaria: #0284c7;
-      --cor-primaria-escura: #0369a1;
-      --cor-borda: #cbd5e1;
-      --foco-cor: #0284c7;
+    .banner h2 {
+        font-size: 29px;
     }
 
-    /* TAMANHOS DE FONTE */
-    body:has(#fonte-grande:checked) {
-      --tamanho-fonte-base: 24px;
+    .secao {
+        margin-left: 15px;
+        margin-right: 15px;
+
+        padding: 25px 20px;
     }
 
-    body:has(#fonte-extra:checked) {
-      --tamanho-fonte-base: 28px;
-    }
+}
 
-    /* MODO LEITURA FÁCIL */
-    body:has(#alternar-leitura:checked) {
-      --espacamento-linha: 2.0;
-      --espacamento-letra: 0.04em;
-    }
 
-    /* DESATIVAR ANIMAÇÕES */
-    body:has(#alternar-animacoes:checked),
-    body:has(#alternar-animacoes:checked) * {
-      animation: none !important;
-      transition: none !important;
-      scroll-behavior: auto !important;
-    }
-
-    /* ==========================================================================
-       2. ESTILOS GERAIS E RESET
-       ========================================================================== */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+@media (max-width: 500px) {
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: var(--tamanho-fonte-base);
-      line-height: var(--espacamento-linha);
-      letter-spacing: var(--espacamento-letra);
-      background-color: var(--cor-fundo);
-      color: var(--texto-principal);
-      padding-bottom: 60px;
-      transition: background-color var(--duracao-transicao) ease, color var(--duracao-transicao) ease;
+        font-size: 17px;
     }
 
-    /* Destaque para navegação por Teclado (TAB) */
-    *:focus-visible {
-      outline: 4px solid var(--foco-cor) !important;
-      outline-offset: 4px !important;
-      border-radius: 6px;
+    .cabecalho {
+        padding: 25px 15px;
     }
 
-    .escondido-visualmente {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+    .cabecalho h1 {
+        font-size: 27px;
     }
 
-    /* Link de Salto para acessibilidade por teclado */
-    .link-salto {
-      position: absolute;
-      top: -100px;
-      left: 16px;
-      background: var(--cor-primaria);
-      color: #0f172a;
-      padding: 12px 20px;
-      z-index: 10000;
-      font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: top 0.2s ease;
+    .cabecalho p {
+        font-size: 18px;
     }
 
-    .link-salto:focus {
-      top: 16px;
+    .acessibilidade {
+        flex-direction: column;
     }
 
-    .conteudo-aplicativo {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 16px;
+    .acessibilidade label {
+        width: 100%;
+
+        text-align: center;
     }
 
-    /* ==========================================================================
-       3. BARRA DE FERRAMENTAS DE ACESSIBILIDADE
-       ========================================================================== */
-    .barra-acessibilidade {
-      background-color: var(--cor-cartao);
-      border: 3px solid var(--cor-borda);
-      border-radius: var(--raio-borda);
-      padding: 16px 20px;
-      margin-bottom: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      box-shadow: var(--sombra-cartao);
+    .banner {
+        padding: 25px 18px;
     }
 
-    .cabecalho-acessibilidade {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 2px solid var(--cor-borda);
-      padding-bottom: 10px;
-      flex-wrap: wrap;
-      gap: 10px;
+    .banner h2 {
+        font-size: 27px;
     }
 
-    .titulo-acessibilidade {
-      font-weight: 800;
-      font-size: 1.1em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--texto-principal);
-    }
-
-    .grupo-controles {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .subgrupo-controle {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 6px 12px;
-      border-radius: 30px;
-      border: 1px solid var(--cor-borda);
-    }
-
-    .rotulo-subgrupo {
-      font-size: 0.85em;
-      font-weight: bold;
-      margin-right: 4px;
-      color: var(--texto-principal);
-    }
-
-    .botao-alternar, .botao-voz-audio {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background-color: var(--cor-primaria);
-      color: #0f172a;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-size: 0.85em;
-      font-weight: bold;
-      cursor: pointer;
-      user-select: none;
-      border: 2px solid transparent;
-      transition: transform 0.15s ease, filter 0.2s ease;
-      text-decoration: none;
-    }
-
-    .botao-voz-audio {
-      background-color: #22c55e;
-      color: #000000;
-    }
-
-    .botao-voz-audio:hover {
-      background-color: #16a34a;
-    }
-
-    body:has(#alternar-contraste:checked) .botao-alternar {
-      color: #000000;
-    }
-
-    .botao-alternar:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.1);
-    }
-
-    /* Estado selecionado dos botões */
-    body:has(#fonte-normal:checked) label[for="fonte-normal"],
-    body:has(#fonte-grande:checked) label[for="fonte-grande"],
-    body:has(#fonte-extra:checked) label[for="fonte-extra"],
-    body:has(#alternar-contraste:checked) label[for="alternar-contraste"],
-    body:has(#alternar-claro:checked) label[for="alternar-claro"],
-    body:has(#alternar-leitura:checked) label[for="alternar-leitura"],
-    body:has(#alternar-animacoes:checked) label[for="alternar-animacoes"] {
-      border-color: #ffffff;
-      box-shadow: 0 0 0 3px var(--foco-cor);
-    }
-
-    /* ==========================================================================
-       4. MENU DE NAVEGAÇÃO E BANNER
-       ========================================================================== */
-    .menu-navegacao {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      margin-bottom: 24px;
-    }
-
-    .link-navegacao {
-      background-color: var(--cor-cartao);
-      border: 2px solid var(--cor-borda);
-      color: var(--texto-principal);
-      text-decoration: none;
-      padding: 12px 18px;
-      border-radius: 14px;
-      font-weight: bold;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    .link-navegacao:hover, .link-navegacao:focus {
-      background-color: var(--cor-primaria);
-      color: #0f172a;
-    }
-
-    .link-destaque-ajuda {
-      color: #ff6b6b;
-      border-color: var(--cor-perigo);
-    }
-
-    .banner-destaque {
-      background-color: var(--cor-cartao);
-      border: 3px solid var(--cor-borda);
-      border-radius: var(--raio-borda);
-      padding: 36px 24px;
-      text-align: center;
-      margin-bottom: 30px;
-      box-shadow: var(--sombra-cartao);
-    }
-
-    .banner-destaque h1 {
-      font-size: 2.2em;
-      color: var(--cor-primaria);
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-
-    .banner-destaque p {
-      font-size: 1.2em;
-      color: var(--texto-suave);
-      max-width: 750px;
-      margin: 0 auto 24px auto;
-    }
-
-    .botao-ajuda-principal {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background-color: var(--cor-perigo);
-      color: #ffffff;
-      font-size: 1.25em;
-      font-weight: 900;
-      text-decoration: none;
-      padding: 18px 32px;
-      border-radius: 50px;
-      border: 3px solid var(--cor-perigo-escura);
-      box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
-      transition: transform 0.15s ease, background-color 0.2s ease;
-      cursor: pointer;
-    }
-
-    .botao-ajuda-principal:hover, .botao-ajuda-principal:focus {
-      transform: scale(1.04);
-      background-color: #dc2626;
-    }
-
-    /* ==========================================================================
-       5. POP-UP MODAL DE EMERGÊNCIA (VIA CSS :target)
-       ========================================================================== */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      z-index: 9999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .modal-overlay:target {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal-fundo-fechar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      cursor: default;
+    .botao-ajuda {
+        width: 100%;
     }
 
     .modal-conteudo {
-      position: relative;
-      background-color: #1e293b;
-      border: 4px solid var(--cor-borda);
-      border-radius: 20px;
-      max-width: 600px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 28px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-      color: #ffffff;
+        padding: 28px 20px;
     }
 
-    body:has(#alternar-contraste:checked) .modal-conteudo {
-      background-color: #121212;
-      border-color: #facc15;
-      color: #ffffff;
-    }
-
-    body:has(#alternar-claro:checked) .modal-conteudo {
-      background-color: #ffffff;
-      color: #0f172a;
-    }
-
-    .botao-fechar-topo {
-      position: absolute;
-      top: 16px;
-      right: 18px;
-      font-size: 1.4em;
-      font-weight: bold;
-      color: #ffffff;
-      text-decoration: none;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background-color: #334155;
-    }
-
-    .modal-conteudo h2 {
-      font-size: 1.8em;
-      color: var(--cor-primaria);
-      margin-bottom: 8px;
-    }
-
-    .linha-divisoria-modal {
-      height: 4px;
-      background-color: var(--cor-alerta);
-      border-radius: 2px;
-      margin-bottom: 16px;
-    }
-
-    .modal-subtitulo {
-      font-size: 1.1em;
-      margin-bottom: 20px;
-      color: var(--texto-suave);
-    }
-
-    .lista-passos-emergencia {
-      padding-left: 24px;
-      margin-bottom: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .lista-passos-emergencia li {
-      font-size: 1.15em;
-      line-height: 1.5;
-    }
-
-    .titulo-ligar-rapido {
-      font-size: 1.1em;
-      margin-bottom: 12px;
-    }
-
-    .grade-emergencia-modal {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .rodape-modal {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .botao-fechar-modal {
-      display: inline-block;
-      background-color: #475569;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: background-color 0.2s;
-    }
-
-    .botao-fechar-modal:hover {
-      background-color: #334155;
-    }
-
-    /* ==========================================================================
-       6. SEÇÕES DE CONTEÚDO E CARTÕES
-       ========================================================================== */
-    .cartao-secao {
-      background-color: var(--cor-cartao);
-      border: 3px solid var(--cor-borda);
-      border-radius: var(--raio-borda);
-      padding: 28px;
-      margin-bottom: 30px;
-      box-shadow: var(--sombra-cartao);
-    }
-
-    .cabecalho-secao {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 20px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--cor-borda);
-      flex-wrap: wrap;
-    }
-
-    .titulo-com-icone {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .cabecalho-secao h2 {
-      font-size: 1.6em;
-      color: var(--cor-primaria);
-    }
-
-    /* Grade de Dicas */
-    .grade-dicas {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-
-    .caixa-dica {
-      background-color: var(--cor-fundo);
-      border: 2px solid var(--cor-borda);
-      border-left: 8px solid var(--cor-primaria);
-      border-radius: 14px;
-      padding: 20px;
-    }
-
-    .caixa-dica.dica-1 { border-left-color: #38bdf8; }
-    .caixa-dica.dica-2 { border-left-color: #f59e0b; }
-    .caixa-dica.dica-3 { border-left-color: #ef4444; }
-
-    .numero-dica {
-      display: inline-block;
-      background-color: var(--cor-primaria);
-      color: #0f172a;
-      font-weight: bold;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.9em;
-      margin-bottom: 8px;
-    }
-
-    body:has(#alternar-contraste:checked) .numero-dica {
-      color: #000000;
-    }
-
-    .caixa-dica h3 {
-      font-size: 1.25em;
-      margin-bottom: 8px;
-      color: var(--texto-principal);
-    }
-
-    .caixa-dica p {
-      color: var(--texto-suave);
-      font-size: 1.05em;
-    }
-
-    /* Direitos */
-    .conteudo-direitos {
-      line-height: var(--espacamento-linha);
-    }
-
-    .introducao-direitos {
-      font-size: 1.15em;
-      margin-bottom: 18px;
-      font-weight: 500;
-    }
-
-    .lista-direitos {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .item-direito {
-      background-color: var(--cor-fundo);
-      border: 2px solid var(--cor-borda);
-      border-radius: 12px;
-      padding: 16px 20px;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .icone-direito {
-      font-size: 1.5em;
-      line-height: 1;
-    }
-
-    .texto-direito strong {
-      color: var(--cor-primaria);
-      display: block;
-      font-size: 1.1em;
-      margin-bottom: 4px;
-    }
-
-    /* Golpes */
-    .caixa-alerta {
-      background-color: #450a0a;
-      border: 2px solid #f87171;
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 20px;
-      color: #fecaca;
-    }
-
-    body:has(#alternar-claro:checked) .caixa-alerta {
-      background-color: #fef2f2;
-      border-color: #fca5a5;
-      color: #991b1b;
-    }
-
-    .caixa-alerta h3 {
-      font-size: 1.25em;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .sinais-golpe {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .cartao-sinal {
-      border: 2px solid var(--cor-borda);
-      border-radius: 12px;
-      padding: 16px;
-      background-color: var(--cor-fundo);
-    }
-
-    .titulo-sinal {
-      font-weight: bold;
-      font-size: 1.15em;
-      color: #f87171;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    /* Botões de Emergência */
-    .botao-emergencia {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 10px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 0.85em;
-      color: #ffffff;
-      background-color: #dc2626;
-      border: 2px solid #7f1d1d;
-      text-align: center;
-      transition: transform 0.15s ease;
-    }
-
-    .botao-emergencia:hover, .botao-emergencia:focus {
-      transform: scale(1.03);
-    }
-
-    .botao-emergencia.policia {
-      background-color: #1e40af;
-      border-color: #1e3a8a;
-    }
-
-    .botao-emergencia.procon {
-      background-color: #d97706;
-      border-color: #92400e;
-    }
-
-    .botao-emergencia span.numero {
-      font-size: 1.2em;
-      margin-top: 2px;
-    }
-
-    /* Rodapé */
-    .rodape {
-      text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      color: var(--texto-suave);
-      font-size: 0.95em;
-    }
+}

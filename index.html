@@ -1,352 +1,382 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Sênior Seguro - Guia Acessível de Segurança Digital</title>
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Guia de Segurança Digital</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- Link de Salto para Acessibilidade por Teclado (Tecla TAB) -->
-  <a href="#conteudo-principal" class="link-salto">Ir direto para o conteúdo principal</a>
+    <!-- =========================
+         CABEÇALHO
+         ========================= -->
 
-  <!-- CONTROLES OCULTOS DE ACESSIBILIDADE (CSS :has) -->
-  <input type="radio" id="fonte-normal" name="tamanho-fonte" class="escondido-visualmente" checked aria-label="Tamanho de fonte normal">
-  <input type="radio" id="fonte-grande" name="tamanho-fonte" class="escondido-visualmente" aria-label="Tamanho de fonte grande">
-  <input type="radio" id="fonte-extra" name="tamanho-fonte" class="escondido-visualmente" aria-label="Tamanho de fonte extra grande">
-  
-  <input type="checkbox" id="alternar-contraste" class="escondido-visualmente" aria-label="Alternar Alto Contraste">
-  <input type="checkbox" id="alternar-claro" class="escondido-visualmente" aria-label="Alternar Modo Claro">
-  <input type="checkbox" id="alternar-leitura" class="escondido-visualmente" aria-label="Alternar Modo Leitura Fácil">
-  <input type="checkbox" id="alternar-animacoes" class="escondido-visualmente" aria-label="Desativar Animações">
+    <header class="cabecalho">
 
-  <div class="conteudo-aplicativo">
+        <div class="cabecalho-conteudo">
 
-    <!-- BARRA DE FERRAMENTAS DE ACESSIBILIDADE -->
-    <nav class="barra-acessibilidade" aria-label="Painel de Acessibilidade">
-      <div class="cabecalho-acessibilidade">
-        <div class="titulo-acessibilidade">
-          <span aria-hidden="true">♿</span>
-          <span>Painel de Acessibilidade</span>
+            <h1>Guia de Segurança Digital</h1>
+
+            <p>
+                Proteja-se e navegue pela internet com tranquilidade.
+            </p>
+
         </div>
 
-        <!-- RECURSO DE SÍNTESE DE VOZ -->
-        <button id="btn-ouvir-pagina" class="botao-voz-audio" onclick="toggleLeituraVoz('conteudo-principal')" aria-label="Ouvir texto da página em voz alta">
-          <span id="icone-voz">🔊</span> <span id="texto-botao-voz">Ouvir Página em Voz Alta</span>
-        </button>
-      </div>
+    </header>
 
-      <div class="grupo-controles">
-        <!-- Controles de Tamanho de Fonte -->
-        <div class="subgrupo-controle">
-          <span class="rotulo-subgrupo">Texto:</span>
-          <label for="fonte-normal" class="botao-alternar" tabindex="0" role="button" aria-label="Tamanho Normal">A</label>
-          <label for="fonte-grande" class="botao-alternar" tabindex="0" role="button" aria-label="Tamanho Grande">A+</label>
-          <label for="fonte-extra" class="botao-alternar" tabindex="0" role="button" aria-label="Tamanho Extra Grande">A++</label>
-        </div>
 
-        <!-- Controles de Tema -->
-        <div class="subgrupo-controle">
-          <span class="rotulo-subgrupo">Cores:</span>
-          <label for="alternar-contraste" class="botao-alternar" tabindex="0" role="button" aria-label="Alto Contraste Amarelo e Preto">
-            <span>🌓</span> Alto Contraste
-          </label>
-          <label for="alternar-claro" class="botao-alternar" tabindex="0" role="button" aria-label="Modo Claro">
-            <span>☀️</span> Modo Claro
-          </label>
-        </div>
+    <!-- =========================
+         ACESSIBILIDADE
+         ========================= -->
 
-        <!-- Controles de Leitura e Movimento -->
-        <div class="subgrupo-controle">
-          <span class="rotulo-subgrupo">Conforto:</span>
-          <label for="alternar-leitura" class="botao-alternar" tabindex="0" role="button" aria-label="Espaçamento de Leitura Fácil">
-            <span>📖</span> Espaçamento
-          </label>
-          <label for="alternar-animacoes" class="botao-alternar" tabindex="0" role="button" aria-label="Pausar Animações">
-            <span>⏸️</span> Sem Movimento
-          </label>
-        </div>
-      </div>
-    </nav>
+    <div class="acessibilidade">
 
-    <!-- MENU PRINCIPAL DE NAVEGAÇÃO -->
-    <nav class="menu-navegacao" aria-label="Menu Principal de Navegação">
-      <a href="#inicio" class="link-navegacao">🏠 Início</a>
-      <a href="#dicas" class="link-navegacao">💡 Dicas Importantes</a>
-      <a href="#direitos" class="link-navegacao">📜 Direitos na Internet</a>
-      <a href="#golpes" class="link-navegacao">⚠️ Identificar Golpes</a>
-      <a href="#modal-ajuda" class="link-navegacao link-destaque-ajuda">🆘 Pedir Ajuda</a>
-    </nav>
+        <input type="checkbox" id="modo-leitura">
+        <label for="modo-leitura">
+            🔊 Modo leitura
+        </label>
 
-    <!-- INÍCIO DO CONTEÚDO PRINCIPAL -->
-    <main id="conteudo-principal">
 
-      <!-- BANNER INICIAL -->
-      <header id="inicio" class="banner-destaque">
-        <h1>🛡️ Sênior Seguro</h1>
-        <p>Seu espaço de proteção digital simples e acessível. Aprenda a navegar na internet sem medo e saiba como se defender de enganos.</p>
-        
-        <a href="#modal-ajuda" class="botao-ajuda-principal" role="button" aria-haspopup="dialog">
-          <span>🆘</span> PRECISO DE AJUDA AGORA!
-        </a>
-      </header>
+        <input type="checkbox" id="alto-contraste">
+        <label for="alto-contraste">
+            🌓 Alto contraste
+        </label>
 
-      <!-- JANELA POP-UP (MODAL) DE EMERGÊNCIA -->
-      <div id="modal-ajuda" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
-        <a href="#" class="modal-fundo-fechar" aria-label="Fechar janela de emergência"></a>
+
+        <input type="checkbox" id="zoom">
+        <label for="zoom">
+            🔍 Zoom
+        </label>
+
+    </div>
+
+
+    <!-- =========================
+         CONTEÚDO DO SITE
+         ========================= -->
+
+    <div class="site-conteudo">
+
+        <main>
+
+
+            <!-- =========================
+                 INÍCIO
+                 ========================= -->
+
+            <section id="inicio" class="inicio">
+
+                <div class="banner">
+
+                    <h2>
+                        Segurança digital para todos
+                    </h2>
+
+                    <p>
+                        Aprenda a reconhecer golpes e proteja
+                        seus dados enquanto usa a internet.
+                    </p>
+
+                    <a href="#ajuda" class="botao-ajuda">
+                        Preciso de ajuda
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 DICAS IMPORTANTES
+                 ========================= -->
+
+            <section id="dicas" class="secao">
+
+                <h2>Dicas importantes</h2>
+
+                <p class="introducao">
+                    Pequenas atitudes podem ajudar a proteger
+                    você de golpes na internet.
+                </p>
+
+
+                <div class="cards">
+
+
+                    <!-- DICA 1 -->
+
+                    <article class="card">
+
+                        <div class="numero">
+                            1
+                        </div>
+
+                        <h3>
+                            Proteja suas senhas
+                        </h3>
+
+                        <p>
+                            Nunca compartilhe sua senha,
+                            código de segurança ou dados pessoais
+                            com outras pessoas.
+                        </p>
+
+                    </article>
+
+
+                    <!-- DICA 2 -->
+
+                    <article class="card">
+
+                        <div class="numero">
+                            2
+                        </div>
+
+                        <h3>
+                            Cuidado com links
+                        </h3>
+
+                        <p>
+                            Não clique em links desconhecidos
+                            recebidos por mensagens, e-mails
+                            ou redes sociais.
+                        </p>
+
+                    </article>
+
+
+                    <!-- DICA 3 -->
+
+                    <article class="card">
+
+                        <div class="numero">
+                            3
+                        </div>
+
+                        <h3>
+                            Pense antes de pagar
+                        </h3>
+
+                        <p>
+                            Antes de fazer um pagamento,
+                            confirme quem está pedindo
+                            e se a informação é verdadeira.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 DIREITOS NA INTERNET
+                 ========================= -->
+
+            <section id="direitos" class="secao direitos">
+
+                <h2>
+                    Direitos na Internet
+                </h2>
+
+                <div class="texto">
+
+                    <p>
+                        Assim como no mundo real, temos direitos
+                        quando usamos a internet.
+                    </p>
+
+                    <p>
+                        Você tem direito à privacidade, à proteção
+                        dos seus dados pessoais e a receber
+                        informações claras sobre como seus dados
+                        são utilizados.
+                    </p>
+
+                    <p>
+                        Também é importante saber que ninguém deve
+                        obrigar você a fornecer suas senhas,
+                        códigos de segurança ou informações pessoais.
+                    </p>
+
+                    <p>
+                        Se algo parecer estranho ou se você não
+                        entender uma solicitação, pare e peça
+                        ajuda antes de continuar.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 COMO IDENTIFICAR UM GOLPE
+                 ========================= -->
+
+            <section id="golpes" class="secao">
+
+                <h2>
+                    Como saber se estou caindo em um golpe?
+                </h2>
+
+                <p class="introducao">
+                    Algumas atitudes podem indicar que uma
+                    mensagem ou ligação é suspeita.
+                </p>
+
+
+                <div class="alerta">
+
+                    <h3>
+                        ⚠️ Fique atento!
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Alguém pede sua senha ou código
+                            de segurança.
+                        </li>
+
+                        <li>
+                            Uma pessoa desconhecida pede
+                            dinheiro com urgência.
+                        </li>
+
+                        <li>
+                            Você recebe uma mensagem dizendo
+                            que ganhou um prêmio.
+                        </li>
+
+                        <li>
+                            Alguém ameaça ou tenta assustar
+                            você para conseguir seus dados.
+                        </li>
+
+                        <li>
+                            A mensagem possui um link estranho
+                            ou desconhecido.
+                        </li>
+
+                        <li>
+                            Alguém pede para você fazer um
+                            pagamento imediatamente.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="frase-destaque">
+
+                    <strong>
+                        Pare e pense antes de clicar!
+                    </strong>
+
+                    <p>
+                        Se tiver dúvida, não faça nada antes
+                        de conversar com alguém de confiança.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 RODAPÉ
+                 ========================= -->
+
+            <footer class="rodape">
+
+                <p>
+                    Guia de Segurança Digital
+                </p>
+
+                <p>
+                    Informação e segurança para todos.
+                </p>
+
+            </footer>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         JANELA "PRECISO DE AJUDA"
+         ========================= -->
+
+    <div id="ajuda" class="modal">
 
         <div class="modal-conteudo">
-          <a href="#" class="botao-fechar-topo" aria-label="Fechar janela">✖</a>
-          
-          <h2 id="titulo-modal">O que fazer agora?</h2>
-          <div class="linha-divisoria-modal"></div>
-          
-          <p class="modal-subtitulo">Se você acha que caiu em um golpe ou está com medo de uma mensagem:</p>
 
-          <ol class="lista-passos-emergencia">
-            <li><strong>Pare tudo o que está fazendo.</strong></li>
-            <li><strong>Ligue para um filho, neto ou amigo próximo.</strong></li>
-            <li><strong>Ligue para o seu banco</strong> usando o número que está atrás do seu cartão.</li>
-            <li><strong>Registre um Boletim de Ocorrência</strong> na delegacia mais próxima ou pela internet.</li>
-          </ol>
-
-          <h3 class="titulo-ligar-rapido">📞 Telefones úteis de emergência:</h3>
-          <div class="grade-emergencia-modal">
-            <a href="tel:190" class="botao-emergencia policia">
-              <span>POLÍCIA MILITAR</span>
-              <span class="numero">Ligar 190</span>
+            <a href="#" class="fechar" aria-label="Fechar janela">
+                ×
             </a>
-            <a href="tel:100" class="botao-emergencia">
-              <span>DIREITOS DO IDOSO</span>
-              <span class="numero">Ligar 100</span>
-            </a>
-            <a href="tel:151" class="botao-emergencia procon">
-              <span>PROCON</span>
-              <span class="numero">Ligar 151</span>
-            </a>
-          </div>
 
-          <div class="rodape-modal">
-            <a href="#" class="botao-fechar-modal">Entendi / Fechar Janela</a>
-          </div>
-        </div>
-      </div>
+            <h2>
+                O que fazer agora?
+            </h2>
 
-      <!-- SEÇÃO: DICAS IMPORTANTES -->
-      <section id="dicas" class="cartao-secao" aria-labelledby="titulo-dicas">
-        <div class="cabecalho-secao">
-          <div class="titulo-com-icone">
-            <span style="font-size: 1.8em;" aria-hidden="true">💡</span>
-            <h2 id="titulo-dicas">Dicas Importantes</h2>
-          </div>
-          <button class="botao-voz-audio" onclick="toggleLeituraVoz('dicas')" aria-label="Ouvir Dicas Importantes">
-            🔊 Ouvir Dicas
-          </button>
-        </div>
+            <p>
+                Se você acha que caiu em um golpe ou está
+                com medo de uma mensagem:
+            </p>
 
-        <div class="grade-dicas">
-          <article class="caixa-dica dica-1">
-            <span class="numero-dica">DICA 1 DE 3</span>
-            <h3>🛑 Desconfie de Urgência e Pressa</h3>
-            <p>Se receber mensagem dizendo que algo grave aconteceu ou que uma conta será bloqueada hoje, pare e respire. Golpistas usam a pressa para evitar que você pense com calma.</p>
-          </article>
+            <ol>
 
-          <article class="caixa-dica dica-2">
-            <span class="numero-dica">DICA 2 DE 3</span>
-            <h3>🔑 Nunca Passe Códigos de SMS</h3>
-            <p>O código numérico de 6 dígitos que chega no seu celular por mensagem (SMS) é o seu segredo. Nunca digite esse código a pedido de ninguém no telefone ou WhatsApp.</p>
-          </article>
+                <li>
+                    Pare tudo o que está fazendo.
+                </li>
 
-          <article class="caixa-dica dica-3">
-            <span class="numero-dica">DICA 3 DE 3</span>
-            <h3>📞 Ligue para Confirmar com Parente</h3>
-            <p>Se um filho, neto ou amigo pedir dinheiro por um número novo, não pague. Ligue para o <strong>número antigo</strong> que você já tem salvo no celular para falar diretamente com a pessoa.</p>
-          </article>
-        </div>
-      </section>
+                <li>
+                    Não clique em links ou faça pagamentos.
+                </li>
 
-      <!-- SEÇÃO: DIREITOS NA INTERNET -->
-      <section id="direitos" class="cartao-secao" aria-labelledby="titulo-direitos">
-        <div class="cabecalho-secao">
-          <div class="titulo-com-icone">
-            <span style="font-size: 1.8em;" aria-hidden="true">📜</span>
-            <h2 id="titulo-direitos">Seus Direitos na Internet</h2>
-          </div>
-          <button class="botao-voz-audio" onclick="toggleLeituraVoz('direitos')" aria-label="Ouvir Direitos na Internet">
-            🔊 Ouvir Direitos
-          </button>
-        </div>
+                <li>
+                    Não informe senhas ou códigos.
+                </li>
 
-        <div class="conteudo-direitos">
-          <p class="introducao-direitos">Como cidadão e pessoa idosa, você tem garantias legais para usar a tecnologia de forma digna e segura:</p>
+                <li>
+                    Converse com alguém de confiança.
+                </li>
 
-          <ul class="lista-direitos">
-            <li class="item-direito">
-              <span class="icone-direito" aria-hidden="true">🏦</span>
-              <div class="texto-direito">
-                <strong>Direito ao Atendimento Presencial no Banco</strong>
-                Você não é obrigado a usar aplicativos de celular se não se sentir seguro. Os bancos devem oferecer atendimento presencial ou auxílio adequado.
-              </div>
-            </li>
+                <li>
+                    Se perdeu dinheiro, procure ajuda
+                    o quanto antes.
+                </li>
 
-            <li class="item-direito">
-              <span class="icone-direito" aria-hidden="true">🛡️</span>
-              <div class="texto-direito">
-                <strong>Proteção Contra Fraudes Financeiras</strong>
-                Se você for vítima de um golpe do qual não teve culpa (como invasão do aplicativo do banco), o Banco Central e a Justiça garantem o direito de contestar a transação e pedir o ressarcimento.
-              </div>
-            </li>
+            </ol>
 
-            <li class="item-direito">
-              <span class="icone-direito" aria-hidden="true">🔒</span>
-              <div class="texto-direito">
-                <strong>Privacidade e Sigilo dos Dados (LGPD)</strong>
-                Nenhuma empresa pode vender ou compartilhar seus dados pessoais, CPF ou número de aposentadoria sem a sua permissão clara.
-              </div>
-            </li>
+            <div class="aviso-modal">
 
-            <li class="item-direito">
-              <span class="icone-direito" aria-hidden="true">👵</span>
-              <div class="texto-direito">
-                <strong>Prioridade e Respeito (Estatuto da Pessoa Idosa)</strong>
-                A lei protege os idosos contra a discriminação digital e contra a exploração financeira por parte de terceiros ou instituições.
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
+                <strong>
+                    Você não precisa resolver tudo sozinho.
+                </strong>
 
-      <!-- SEÇÃO: IDENTIFICAR GOLPES -->
-      <section id="golpes" class="cartao-secao" aria-labelledby="titulo-golpes">
-        <div class="cabecalho-secao">
-          <div class="titulo-com-icone">
-            <span style="font-size: 1.8em;" aria-hidden="true">⚠️</span>
-            <h2 id="titulo-golpes">Como Saber se Estou Caindo em um Golpe?</h2>
-          </div>
-          <button class="botao-voz-audio" onclick="toggleLeituraVoz('golpes')" aria-label="Ouvir Como Identificar Golpes">
-            🔊 Ouvir Golpes
-          </button>
-        </div>
+                <p>
+                    Pedir ajuda é uma forma de se proteger.
+                </p>
 
-        <div class="caixa-alerta" role="alert">
-          <h3>🚨 Regra de Ouro:</h3>
-          <p>Se algo parecer "bom demais para ser verdade" ou se causar "muito medo de repente", é 99% de chance de ser um golpe.</p>
-        </div>
-
-        <p style="margin-bottom: 16px; font-weight: bold;">Fique atento a estas 5 atitudes altamente suspeitas:</p>
-
-        <div class="sinais-golpe">
-          <article class="cartao-sinal">
-            <div class="titulo-sinal">
-              <span>🔴 1. Pedem para fazer Pix para nome de desconhecido</span>
             </div>
-            <p>Se o banco ou a pessoa pede para enviar dinheiro para a conta de um terceiro (pessoa física desconhecida ou outro banco), interrompa imediatamente!</p>
-          </article>
 
-          <article class="cartao-sinal">
-            <div class="titulo-sinal">
-              <span>🔴 2. Exigem segredo absoluto</span>
-            </div>
-            <p>O golpista diz: <em>"Não conte para ninguém da sua família agora"</em> ou <em>"Não desligue a chamada"</em>. Eles fazem isso para impedir que você peça ajuda.</p>
-          </article>
-
-          <article class="cartao-sinal">
-            <div class="titulo-sinal">
-              <span>🔴 3. Dizem que um motoboy vai buscar seu cartão</span>
-            </div>
-            <p>Nenhum banco envia pessoas até a sua casa para recolher cartões bancários "cancelados" ou "clonados". Isso é fraude!</p>
-          </article>
-
-          <article class="cartao-sinal">
-            <div class="titulo-sinal">
-              <span>🔴 4. Pedem foto do seu rosto em troca de presente</span>
-            </div>
-            <p>Entregadores falsos levam flores ou chocolates de surpresa e pedem para tirar uma foto do seu rosto ou cobrar uma "taxa de entrega". Essa foto é usada para abrir contas no seu nome.</p>
-          </article>
-
-          <article class="cartao-sinal">
-            <div class="titulo-sinal">
-              <span>🔴 5. Prometem prêmios ou recadastramento de benefício</span>
-            </div>
-            <p>Mensagens dizendo que seu benefício do INSS será cancelado se você não clicar em um link azul recebido por SMS.</p>
-          </article>
         </div>
-      </section>
 
-    </main>
+    </div>
 
-    <!-- RODAPÉ -->
-    <footer class="rodape" role="contentinfo">
-      <p>Sênior Seguro • Desenvolvido com foco total em acessibilidade, autonomia e proteção para a terceira idade.</p>
-    </footer>
-
-  </div>
-
-  <!-- SCRIPT PARA LEITURA DE VOZ -->
-  <script>
-    let sinteseVoz = window.speechSynthesis;
-    let elementoAtualSendoLido = null;
-
-    function toggleLeituraVoz(idElemento) {
-      if (!sinteseVoz) {
-        alert("Desculpe, seu navegador não suporta a leitura em voz alta.");
-        return;
-      }
-
-      if (sinteseVoz.speaking && elementoAtualSendoLido === idElemento) {
-        sinteseVoz.cancel();
-        elementoAtualSendoLido = null;
-        atualizarTextoBotaoVoz(false);
-        return;
-      }
-
-      sinteseVoz.cancel();
-
-      const elemento = document.getElementById(idElemento);
-      if (!elemento) return;
-
-      const textoParaLer = elemento.innerText;
-
-      const locucao = new SpeechSynthesisUtterance(textoParaLer);
-      locucao.lang = 'pt-BR';
-      locucao.rate = 0.9;
-
-      locucao.onstart = function() {
-        elementoAtualSendoLido = idElemento;
-        atualizarTextoBotaoVoz(true);
-      };
-
-      locucao.onend = function() {
-        elementoAtualSendoLido = null;
-        atualizarTextoBotaoVoz(false);
-      };
-
-      locucao.onerror = function() {
-        elementoAtualSendoLido = null;
-        atualizarTextoBotaoVoz(false);
-      };
-
-      sinteseVoz.speak(locucao);
-    }
-
-    function atualizarTextoBotaoVoz(lendo) {
-      const btnPrincipal = document.getElementById('btn-ouvir-pagina');
-      const icone = document.getElementById('icone-voz');
-      const texto = document.getElementById('texto-botao-voz');
-
-      if (lendo) {
-        if (icone) icone.textContent = '⏹️';
-        if (texto) texto.textContent = 'Parar Leitura de Voz';
-        if (btnPrincipal) btnPrincipal.style.backgroundColor = '#ef4444';
-      } else {
-        if (icone) icone.textContent = '🔊';
-        if (texto) texto.textContent = 'Ouvir Página em Voz Alta';
-        if (btnPrincipal) btnPrincipal.style.backgroundColor = '#22c55e';
-      }
-    }
-  </script>
 
 </body>
+
 </html>
