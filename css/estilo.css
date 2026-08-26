@@ -330,7 +330,7 @@ gap: 12px;
 .lista-passos-emergencia li {
 font-size: 1.15em;
 line-height: 1.5;
-color: #1e293b;
+color: #ccd1da;
 }
 
 body:has(#alternar-contraste:checked) .lista-passos-emergencia li {
